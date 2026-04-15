@@ -1,0 +1,23 @@
+# Virtual environment
+venv/
+.venv/
+
+# Pytest cache
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.auth/
+
+# VS Code
+.vscode/
+
+# Variables de entorno
+.env
+
+# OS
+.DS_Store
+Thumbs.db
