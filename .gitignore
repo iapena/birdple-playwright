@@ -21,3 +21,10 @@ playwright/.auth/
 # OS
 .DS_Store
 Thumbs.db
+
+# Playwright
+node_modules/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
