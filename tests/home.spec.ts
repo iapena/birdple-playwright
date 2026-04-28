@@ -40,10 +40,15 @@ test.describe('Home Navigation - Tests', () => {
 
     test('should toggle theme', async ({ page }) => {
         //get the current theme
-        const actualTheme = await page.evaluate(() => document.documentElement.classList.contains('light'));
+        const actualTheme = await page.evaluate(() => document.documentElement.classList.contains('dark'));
 
         await homePage.clickThemeButton();
-        await expect(page.evaluate(() => document.documentElement.classList.contains('dark'))).resolves.toBe(!actualTheme);
+
+        await page.waitForFunction(
+            (isDark) => document.documentElement.classList.contains('dark') !== isDark , actualTheme);
+        
+        const newTheme = await page.evaluate(() => document.documentElement.classList.contains('dark'));
+        expect(newTheme).toBe(!actualTheme);
 
     }); 
 
