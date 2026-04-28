@@ -13,7 +13,7 @@ test.describe('Home Navigation - Tests', () => {
         await homePage.clickEvents();
 
         await expect(page).toHaveURL(/.*\/events/);
-        await expect(page.getByRole('heading',{name: 'Eventos', level: 1})).toBeVisible();
+        await expect(page.getByRole('heading',{name: /Explorar Eventos/i, level: 1})).toBeVisible();
 
     });
 
@@ -21,21 +21,21 @@ test.describe('Home Navigation - Tests', () => {
         await homePage.clickTournaments();
 
         await expect(page).toHaveURL(/.*\/tournaments/);
-        await expect(page.getByRole('heading',{name: 'Torneos', level: 1})).toBeVisible();
+        await expect(page.getByRole('heading',{name: /Torneos/i, level: 1})).toBeVisible();
     });
     
     test('should navigate to Bazar page', async ({ page }) => {
         await homePage.clickBazar();
 
         await expect(page).toHaveURL(/.*\/bazar/);
-        await expect(page.getByRole('heading',{name: 'Bazar', level: 1})).toBeVisible();
+        await expect(page.getByRole('heading',{name: /Bazar/i, level: 1})).toBeVisible();
     });
 
     test('should navigate to Login page', async ({ page }) => {
         await homePage.clickLogin();
 
         await expect(page).toHaveURL(/.*\/login/);
-        await expect(page.getByRole('heading',{name: 'Iniciar sesión', level: 1})).toBeVisible();
+        await expect(page.getByRole('heading',{name: /Iniciar sesión/i, level: 1})).toBeVisible();
     });
 
     test('should toggle theme', async ({ page }) => {
