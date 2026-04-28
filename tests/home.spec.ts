@@ -13,6 +13,8 @@ test.describe('Home Navigation - Tests', () => {
         await homePage.clickEvents();
         await page.waitForLoadState('networkidle');
 
+        await page.screenshot({ path: 'debug-events.png' });
+
         await expect(page).toHaveURL(/.*\/events/);
         await expect(page.getByRole('heading',{name: /Explorar Eventos/i, level: 1})).toBeVisible();
 
