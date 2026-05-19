@@ -33,6 +33,7 @@ export class HomePage {
         await this.locators.themeButton.click();
     }
 
+    // mover a otra clase FooterPage
     async clickFAQ(): Promise<void> {
         await this.footerLocators.faqlink.click();
     }
