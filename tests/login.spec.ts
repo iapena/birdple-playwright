@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from './pages/LoginPage';
+import { loginData } from './data/loginData';
 
 test.describe('Login Functionality - Tests', () => {
     let loginPage: LoginPage;
@@ -41,14 +42,11 @@ test.describe('Login Functionality - Tests', () => {
         });
 
         await expect( async () => {
-            await loginPage.fillEmail('validemail@gmail.com');
-            await loginPage.fillPassword('wrongpassword');
+            await loginPage.fillEmail(loginData.invalidUser.email);
+            await loginPage.fillPassword(loginData.invalidUser.password);
             await loginPage.clickLogin();
             
             await expect(page.getByText(/Email o contraseña incorrectos/i)).toBeVisible();
-           /*  await expect(page.getByRole('listitem').filter( {hasText: /Close toast Email o contraseña incorrectos/i})).toBeEnabled(); */
-            /* const errorMessage = page.getByText(/Email o contraseña incorrectos/i);
-            await expect(errorMessage).toBeVisible(); */
         }).toPass()
         
         
