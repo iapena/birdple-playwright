@@ -12,18 +12,18 @@ export class LoginPage {
 
     async fillEmail(email: string): Promise<void> {
         await this.loginlocators.inputEmail.waitFor({ state: 'visible' });
-        await expect(this.loginlocators.inputEmail).toBeVisible();
         await expect(this.loginlocators.inputEmail).toBeEditable();
-        await this.loginlocators.inputEmail.fill(email);
+        await this.loginlocators.inputEmail.click();
+        await this.loginlocators.inputEmail.pressSequentially(email);
         await expect(this.loginlocators.inputEmail).toHaveValue(email);
 
     }
     
     async fillPassword(password: string): Promise<void> {
         await this.loginlocators.inputPassword.waitFor({ state: 'visible' });
-        await expect(this.loginlocators.inputPassword).toBeVisible();
         await expect(this.loginlocators.inputPassword).toBeEditable();
-        await this.loginlocators.inputPassword.fill(password);
+        await this.loginlocators.inputPassword.click();
+        await this.loginlocators.inputPassword.pressSequentially(password);
         await expect(this.loginlocators.inputPassword).toHaveValue(password);
     }
 
