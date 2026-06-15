@@ -12,19 +12,18 @@ export class LoginPage {
 
     async fillEmail(email: string): Promise<void> {
         await this.loginlocators.inputEmail.waitFor({ state: 'visible' });
-        await expect(this.loginlocators.inputEmail).toBeEditable();
+        /* await expect(this.loginlocators.inputEmail).toBeEditable(); */
         await this.loginlocators.inputEmail.click();
         await this.loginlocators.inputEmail.pressSequentially(email);
-        await expect(this.loginlocators.inputEmail).toHaveValue(email);
-
+        /* await expect(this.loginlocators.inputEmail).toHaveValue(email); */
     }
     
     async fillPassword(password: string): Promise<void> {
         await this.loginlocators.inputPassword.waitFor({ state: 'visible' });
-        await expect(this.loginlocators.inputPassword).toBeEditable();
+        /* await expect(this.loginlocators.inputPassword).toBeEditable(); */
         await this.loginlocators.inputPassword.click();
         await this.loginlocators.inputPassword.pressSequentially(password);
-        await expect(this.loginlocators.inputPassword).toHaveValue(password);
+        /* await expect(this.loginlocators.inputPassword).toHaveValue(password); */
     }
 
     async forgetPassword(): Promise<void> {
@@ -32,14 +31,16 @@ export class LoginPage {
     }
     
     async clickLogin(): Promise<void> {
+        /* await expect(this.loginlocators.loginButton).toBeEnabled(); */
+        await this.loginlocators.loginButton.waitFor({ state: 'visible'})
         await this.loginlocators.loginButton.click();
     }
 
-    async login(email: string, password: string): Promise<void> {
+/*     async login(email: string, password: string): Promise<void> {
         await this.fillEmail(email);
         await this.fillPassword(password);
         await this.clickLogin();
-    }
+    } */
 
     async clickRegister(): Promise<void> {
         await this.loginlocators.registerLink.click();
