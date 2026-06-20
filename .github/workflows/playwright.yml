@@ -15,6 +15,8 @@ jobs:
         node-version: lts/*
     - name: Install dependencies
       run: npm ci
+    - name: Install unzip
+      run: sudo apt-get update && sudo apt-get install -y unzip
     - name: Install Playwright Browsers
       run: npx playwright install chromium
       env:
